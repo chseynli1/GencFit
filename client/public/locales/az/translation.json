@@ -1,0 +1,168 @@
+{
+  "home": "Ana səhifə",
+  "about": "Haqqımızda",
+  "services": "Xidmətlər",
+  "contact": "Əlaqə",
+  "registerText": "Daxil ol",
+  "gyms": "İdman zalları və əyləncə məkanları",
+  "partners": "Tərəfdaşlar",
+  "blog": "Bloq",
+  "homeSlider": {
+    "title": "Aktiv həyat, sağlam gələcək!",
+    "subtitle": "Gənclər üçün idman, əyləncə və inkişaf bir arada",
+    "button": "Qeydiyyatdan keç"
+  },
+  "hero": {
+    "title": "GəncFitlə həyatınıza rəng qatın, hər anı dəyərləndirin!",
+    "subtitle": "İdman, sənət və sosial fəaliyyətlər burada bir aradadır. Sənin enerjin, bizim imkanlarımızla birləşir!"
+  },
+  "steps": {
+    "title": "Sadə addımlar, zəngin seçimlər",
+    "subtitle": "Bir neçə kliklə vaxtınızı daha səmərəli keçirin",
+    "register": "Qeydiyyatdan keçin",
+    "explore": "Maraqlarınıza uyğun fəaliyyətləri kəşf edin",
+    "selectLocation": "Sizə ən uyğun məkanı seçin",
+    "joinActivity": "Vaxt təyin edib, fəaliyyətlərə qatılın"
+  },
+  "experience": {
+    "title": "Yeni təcrübələrə açıq olun",
+    "subtitle": "İdman, incəsənət, intellektual fəaliyyətlər və daha çoxu burada",
+    "items": [
+      {
+        "title": "Yoqа və meditasiya",
+        "count": "8 zal"
+      },
+      {
+        "title": "Fitness",
+        "count": "20 zal"
+      },
+      {
+        "title": "Rəqs kursları",
+        "count": "12 zal"
+      },
+      {
+        "title": "Şahmat",
+        "count": "22 klub"
+      },
+      {
+        "title": "Döyüş sənətləri",
+        "count": "17 zal"
+      },
+      {
+        "title": "Oxçuluq",
+        "count": "10 klub"
+      },
+      {
+        "title": "Karting",
+        "count": "4 mərkəz"
+      },
+      {
+        "title": "Atçılıq",
+        "count": "5 mərkəz"
+      }
+    ],
+    "more": "Daha çox"
+  },
+  "footer": {
+    "logoAlt": "GəncFit Logo",
+    "address": {
+      "line1": "Azərbaycan Respublikası,",
+      "line2": "Bakı şəhəri"
+    },
+    "phone": "(+994) 00-000 00 00",
+    "email": "Ganjfit@gmail.com",
+    "links": {
+      "about": "Haqqımızda",
+      "partners": "Tərəfdaşlar",
+      "services": "Xidmətlər",
+      "contact": "Əlaqə"
+    },
+    "rights": "Azərbaycan Respublikası, Gənclər fondu"
+  },
+  "register": {
+    "title": "Qeydiyyatdan keçin",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "contact": "E-mail və ya telefon",
+    "password": "Şifrə",
+    "submit": "Qeydiyyatdan keç",
+    "or": "Və ya",
+    "google": "Google ilə davam et",
+    "apple": "Apple ilə davam et",
+    "success": "Qeydiyyat uğurla tamamlandı!",
+    "googleClicked": "Google ilə keç klikləndi",
+    "appleClicked": "Apple ilə keç klikləndi",
+    "errors": {
+      "firstName": "Ad vacibdir",
+      "lastName": "Soyad vacibdir",
+      "contactRequired": "Email və ya telefon mütləqdir",
+      "contactInvalid": "Email və ya telefon formatı səhvdir",
+      "password": "Şifrə vacibdir",
+      "minPassword": "Minimum 8 simvol"
+    }
+  },
+  "aboutPage": {
+    "title": "GəncFit Haqqında",
+    "storyTitle": "Hekayəmiz",
+    "storyText": "GəncFit platforması Azərbaycan Respublikasının Gənclər Fondunun dəstəyi ilə yaradılmışdır. Bu təşəbbüs, ölkədəki gənclərin ehtiyaclarına cavab verəcək, onların sağlam, balanslı və sosial cəhətdən fəal həyat sürmələrinə yardımçı olacaq bir mühit qurmaq arzusu ilə doğuldu.",
+    "missionTitle": "Missiyamız",
+    "missionText": "Gənclərin asudə vaxtlarını səmərəli, sağlam və faydalı şəkildə keçirmələrini təmin etmək üçün varıq. GəncFit, gənclərə düzgün seçimlər təqdim edərək onların həyat keyfiyyətini artırmağı qarşısına məqsəd qoyur.",
+    "offerTitle": "Nə təklif edirik?",
+    "offerText": "GəncFit platformasında müxtəlif maraqlara uyğun fəaliyyət sahələrinə qoşulmaq mümkündür.",
+    "offerList": [
+      "Fitness zalları",
+      "Yoga, pilates studiyaları",
+      "Rəqs kursları",
+      "Atçılıq mərkəzləri",
+      "Şahmat klubları",
+      "Keramika kursları",
+      "Paintball klubları",
+      "Üzgüçülük mərkəzləri",
+      "Kartinq mərkəzləri",
+      "Müxtəlif idman növləri",
+      "Rəsm kursları",
+      "Müxtəlif əyləncə növləri və tədbirlər"
+    ],
+    "audienceTitle": "Kimlər üçündür?",
+    "audienceText": "Platformamız əsasən 15–25 yaş arası gəncləri hədəfləyir. Lakin özünü inkişaf etdirmək, aktiv və sağlam həyat tərzi qurmaq istəyən hər kəs üçün açığıq. Məqsədimiz, gəncləri zərərli vərdişlərdən uzaqlaşdırmaq, onlara idmanla yanaşı intellektual, yaradıcılıq və sosial fəaliyyətlərdə də iştirak imkanı təqdim etməkdir.",
+    "valuesTitle": "Dəyərlərimiz",
+    "valuesSubtitle": "Yüksək keyfiyyət və şəffaflıq üzərində qurulmuş yanaşma",
+    "values": {
+      "health": {
+        "title": "Sağlamlıq",
+        "text": "Fiziki və ruhi sağlamlığı ön planda tuturuq"
+      },
+      "accessibility": {
+        "title": "Əlçatanlıq",
+        "text": "Fəaliyyətlər hər bir gəncin rahatlıqla qoşula biləcəyi şəkildə təqdim olunur."
+      },
+      "usefulness": {
+        "title": "Faydalılıq",
+        "text": "Hər bir xidmət şəxsi inkişafa və sosial bacarıqların artmasına töhfə verir."
+      },
+      "trust": {
+        "title": "Etibar",
+        "text": "Rəsmi və yoxlanılmış partnyorlarla əməkdaşlıq edirik"
+      }
+    },
+    "differenceTitle": "Fərqimiz",
+    "differenceText": "GəncFit gənclərə müxtəlif sahələrdə geniş fəaliyyət imkanları təqdim edir və onların asudə vaxtlarını səmərəli keçirmələrinə dəstək olur. Sadəcə idman saytı olmayaraq, sosial, mədəni və şəxsi inkişafı əhatə edən çoxşaxəli proqramlarla gənclərin fiziki sağlamlığı və yaradıcılıq qabiliyyətlərini inkişaf etdiririk."
+  },
+  "login": {
+    "title": "Daxil ol",
+    "contact": "Email",
+    "password": "Şifrə",
+    "submit": "Daxil ol",
+    "errors": {
+      "contactRequired": "Email daxil edin",
+      "contactInvalid": "Email düzgün formatda deyil",
+      "password": "Şifrə daxil edin"
+    }
+  },
+  "loading": "Yüklənir...",
+  "categories": {
+    "idman-saglamliq": "İdman və Sağlamlıq",
+    "motivasiya": "Motivasiya",
+    "incesenet": "İncəsənət"
+  }
+}

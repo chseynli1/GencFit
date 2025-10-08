@@ -1,0 +1,168 @@
+{
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "registerText": "Login",
+    "gyms": "Gyms & Entertainment",
+    "partners": "Partners",
+    "blog": "Blog",
+    "homeSlider": {
+        "title": "Active Life, Healthy Future!",
+        "subtitle": "Sports, entertainment, and development together for youth",
+        "button": "Register Now"
+    },
+    "hero": {
+        "title": "Add color to your life with GəncFit, make every moment count!",
+        "subtitle": "Sports, art, and social activities are all in one place. Your energy meets our opportunities!"
+    },
+    "steps": {
+        "title": "Simple steps, rich choices",
+        "subtitle": "Make the most of your time with just a few clicks",
+        "register": "Register",
+        "explore": "Discover activities of your interest",
+        "selectLocation": "Choose the most suitable location",
+        "joinActivity": "Set the time and join the activity"
+    },
+    "experience": {
+        "title": "Be open to new experiences",
+        "subtitle": "Sports, arts, intellectual activities, and much more here",
+        "items": [
+            {
+                "title": "Yoga and meditation",
+                "count": "8 halls"
+            },
+            {
+                "title": "Fitness",
+                "count": "20 halls"
+            },
+            {
+                "title": "Dance courses",
+                "count": "12 halls"
+            },
+            {
+                "title": "Chess",
+                "count": "22 clubs"
+            },
+            {
+                "title": "Martial arts",
+                "count": "17 halls"
+            },
+            {
+                "title": "Archery",
+                "count": "10 clubs"
+            },
+            {
+                "title": "Karting",
+                "count": "4 centers"
+            },
+            {
+                "title": "Horseback riding",
+                "count": "5 centers"
+            }
+        ],
+        "more": "See more"
+    },
+    "footer": {
+        "logoAlt": "GanjFit Logo",
+        "address": {
+            "line1": "Republic of Azerbaijan,",
+            "line2": "Baku city"
+        },
+        "phone": "(+994) 00-000 00 00",
+        "email": "Ganjfit@gmail.com",
+        "links": {
+            "about": "About Us",
+            "partners": "Partners",
+            "services": "Services",
+            "contact": "Contact"
+        },
+        "rights": "Republic of Azerbaijan, Youth Foundation"
+    },
+    "register": {
+        "title": "Register",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "contact": "Email or Phone",
+        "password": "Password",
+        "submit": "Sign Up",
+        "or": "Or",
+        "google": "Continue with Google",
+        "apple": "Continue with Apple",
+        "success": "Registration completed successfully!",
+        "googleClicked": "Continue with Google clicked",
+        "appleClicked": "Continue with Apple clicked",
+        "errors": {
+            "firstName": "First name is required",
+            "lastName": "Last name is required",
+            "contactRequired": "Email or phone is required",
+            "contactInvalid": "Invalid email or phone format",
+            "password": "Password is required",
+            "minPassword": "Minimum 8 characters"
+        }
+    },
+    "aboutPage": {
+        "title": "About GəncFit",
+        "storyTitle": "Our Story",
+        "storyText": "GəncFit platform was created with the support of the Youth Foundation of the Republic of Azerbaijan. This initiative was born out of the desire to create an environment that meets the needs of young people in the country, helping them lead a healthy, balanced, and socially active life.",
+        "missionTitle": "Our Mission",
+        "missionText": "We are here to ensure that young people spend their free time effectively, healthily, and beneficially. GəncFit aims to improve their quality of life by offering them the right choices.",
+        "offerTitle": "What do we offer?",
+        "offerText": "On the GəncFit platform, you can join activity areas that suit various interests.",
+        "offerList": [
+            "Fitness gyms",
+            "Yoga, pilates studios",
+            "Dance courses",
+            "Equestrian centers",
+            "Chess clubs",
+            "Ceramics courses",
+            "Paintball clubs",
+            "Swimming centers",
+            "Karting centers",
+            "Various sports",
+            "Art courses",
+            "Various entertainment activities and events"
+        ],
+        "audienceTitle": "Who is it for?",
+        "audienceText": "Our platform mainly targets young people aged 15–25. However, we are open to anyone who wants to develop themselves and build an active and healthy lifestyle. Our goal is to keep young people away from harmful habits and offer opportunities not only in sports but also in intellectual, creative, and social activities.",
+        "valuesTitle": "Our Values",
+        "valuesSubtitle": "An approach built on high quality and transparency",
+        "values": {
+            "health": {
+                "title": "Health",
+                "text": "We prioritize physical and mental health"
+            },
+            "accessibility": {
+                "title": "Accessibility",
+                "text": "Activities are presented in a way that every young person can easily participate."
+            },
+            "usefulness": {
+                "title": "Usefulness",
+                "text": "Each service contributes to personal development and social skills."
+            },
+            "trust": {
+                "title": "Trust",
+                "text": "We cooperate with official and verified partners"
+            }
+        },
+        "differenceTitle": "Our Difference",
+        "differenceText": "GəncFit offers young people a wide range of opportunities in various fields and supports them in spending their leisure time efficiently. Not just a sports site, we also include social, cultural, and personal development programs that improve both physical health and creative abilities."
+    },
+    "login": {
+        "title": "Login",
+        "contact": "Email",
+        "password": "Password",
+        "submit": "Login",
+        "errors": {
+            "contactRequired": "Email is required",
+            "contactInvalid": "Invalid email format",
+            "password": "Password is required"
+        }
+    },
+    "loading": "Loading...",
+    "categories": {
+        "idman-saglamliq": "Health & Fitness",
+        "motivasiya": "Motivation",
+        "incesenet": "Art"
+    }
+}

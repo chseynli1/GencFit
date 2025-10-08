@@ -1,0 +1,148 @@
+.login {
+    min-height: 717px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 130px 50px 130px;
+    gap: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loginImg {
+    width: 480px;
+    height: 615px
+}
+
+.loginRight {
+    width: 680px;
+    height: 617px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #7991F2;
+    border-radius: 15px;
+
+    .loginDivh2 {
+        font-size: 30px;
+        color: #022BD1;
+        font-weight: 500;
+    }
+}
+
+
+.loginRightForm {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .inputWrap {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .loginFormInp {
+        width: 480px;
+        height: 40px;
+        border: 1px solid #1442FF;
+    }
+
+    .loginFormBottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .loginFormBtn {
+            width: 190px;
+            height: 50px;
+            color: #EAEBED !important;
+            background-color: #022BD1 !important;
+            font-weight: 500;
+            font-size: 16px;
+            border: none !important;
+            box-shadow: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                background-color: #2b2c3000;
+            }
+
+            &:hover {
+                background-color: #1c46ee !important;
+                color: #fff !important;
+            }
+        }
+
+        .loginFormLink {
+            color: #022BD1;
+        }
+    }
+
+
+}
+
+.socialSection {
+    width: 480px;
+    height: 83px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.socialAuth {
+    display: flex;
+    gap: 55px;
+
+    .socialBtn {
+        width: 212px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2B2C30;
+        font-size: 12px;
+        gap: 10px;
+        border: 1px solid #1442FF;
+        font-weight: 500;
+        transition: all 0.2s;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+    display: block;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    width: 212px;
+    height: 1px;
+    background-color: #7C828C;
+}
+
+.dividerText {
+    margin: 0 16px;
+    font-size: 10px;
+    font-weight: 400;
+    color: #022BD1;
+    white-space: nowrap;
+}

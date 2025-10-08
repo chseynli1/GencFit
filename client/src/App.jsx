@@ -1,0 +1,22 @@
+import './App.css'
+import { Header, Footer } from './shared/layout'
+import Router from './pages'
+import './i18n'
+import React, { useState } from 'react'
+import { ToastContainer } from 'react-toastify'
+import { SearchProvider } from './context/SearchContext'
+function App() {
+
+  const [searchResults, setSearchResults] = useState([])
+
+  return (
+    <SearchProvider>
+      <Header onSearchResults={setSearchResults} />
+      <Router searchResults={searchResults} />
+      <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
+    </SearchProvider>
+  )
+}
+
+export default App

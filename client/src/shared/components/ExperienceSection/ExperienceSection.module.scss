@@ -1,0 +1,136 @@
+.experienceSection {
+  padding: 60px 0;
+  background: #f7f9fc;
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #1a33d5;
+    margin-bottom: 12px;
+    font-family: 'Poppins';
+  }
+
+  .subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    color: #1e1e1e;
+    margin-bottom: 48px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .card {
+    background-color: #446DFF;
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    width: 280px;
+    height: auto;
+    transition: transform 0.2s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-6px);
+    }
+
+    .cardImage {
+      width: 240px;
+      height: 205px;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: #446dff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 12px;
+        box-sizing: border-box;
+        background-color: #446dff;
+      }
+    }
+
+    .cardText {
+      width: 100%;
+      padding-top: 16px;
+      text-align: left;
+      background-color: #1e1e1e00;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      cursor: pointer;
+
+      h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 8px;
+        background-color: #1e1e1e00;
+      }
+
+      .cardFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1e1e1e00;
+
+        .cardSpan {
+          font-size: 14px;
+          background-color: #1e1e1e00;
+        }
+
+        .arrowBtn {
+          background-color: white;
+          color: #446DFF;
+          border: none;
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s ease;
+
+          &:hover {
+            background-color: #e6eaff;
+          }
+        }
+      }
+    }
+  }
+
+  .moreBtn {
+    margin-top: 40px;
+    font-weight: 400;
+    cursor: pointer;
+    color: #1e1e1e;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
