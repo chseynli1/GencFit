@@ -83,7 +83,7 @@
         "title": "Register",
         "firstName": "First Name",
         "lastName": "Last Name",
-        "contact": "Email or Phone",
+        "contact": "Email",
         "password": "Password",
         "submit": "Sign Up",
         "or": "Or",
@@ -95,8 +95,8 @@
         "errors": {
             "firstName": "First name is required",
             "lastName": "Last name is required",
-            "contactRequired": "Email or phone is required",
-            "contactInvalid": "Invalid email or phone format",
+            "contactRequired": "Email is required",
+            "contactInvalid": "Invalid email format",
             "password": "Password is required",
             "minPassword": "Minimum 8 characters"
         }

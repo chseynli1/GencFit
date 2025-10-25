@@ -1,6 +1,6 @@
 import { Urls } from '../../constants/Urls'
 import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import styles from './Header.module.scss';
 import { useTranslation } from 'react-i18next'
 import logo from "../../../assets/images/gencfit.png"
@@ -8,13 +8,15 @@ import GlobeIcon from '@/assets/images/LanguageSelector.svg';
 import { FiSearch } from 'react-icons/fi'
 import { useSearch } from '@/context/SearchContext';
 
-const Header = ({onSearchResults }) => {
+const Header = ({ onSearchResults }) => {
     const { setResults } = useSearch();
     const [isOpen, setIsOpen] = React.useState(false)
     const [langMenuOpen, setLangMenuOpen] = React.useState(false)
     const [searchOpen, setSearchOpen] = React.useState(false)
     const [searchText, setSearchText] = React.useState("")
-
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+    const [userInitials, setUserInitials] = React.useState("U");
+    const navigate = useNavigate();
     const searchRef = useRef(null)
     const { i18n, t, ready } = useTranslation()
 
@@ -108,6 +110,50 @@ const Header = ({onSearchResults }) => {
         }
     };
 
+
+    useEffect(() => {
+    const storedLogin = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(storedLogin);
+
+    const fullName = localStorage.getItem("fullName");
+    if (fullName) {
+        const names = fullName.split(" ");
+        const initials = names.map(n => n[0].toUpperCase()).join("");
+        setUserInitials(initials);
+    }
+
+    const handleLoginChange = () => {
+        const status = localStorage.getItem("isLoggedIn") === "true";
+        setIsLoggedIn(status);
+
+        const fullName = localStorage.getItem("fullName");
+        if (fullName) {
+            const names = fullName.split(" ");
+            const initials = names.map(n => n[0].toUpperCase()).join("");
+            setUserInitials(initials);
+        } else {
+            setUserInitials("U"); // default
+        }
+    };
+
+    window.addEventListener("loginStatusChanged", handleLoginChange);
+    return () => {
+        window.removeEventListener("loginStatusChanged", handleLoginChange);
+    };
+}, []);
+
+
+    const handleLogout = () => {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
+        setIsLoggedIn(false);
+        navigate("/");
+        window.dispatchEvent(new Event("loginStatusChanged"));
+    };
+
+
+
     if (!ready) return null
 
     return (
@@ -168,9 +214,29 @@ const Header = ({onSearchResults }) => {
                         </ul>
                     )}
                 </div>
-                <Link to={Urls.LOGIN}>
-                    <button className={styles.register}>{t('registerText')}</button>
-                </Link>
+
+
+                <div className={styles.authWrapper}>
+                    {isLoggedIn ? (
+                        <>
+                            <Link to="/profile">
+                                <button className={styles.profileCircleBtn}>
+                                    {userInitials}
+                                </button>
+                            </Link>
+
+                            <button onClick={handleLogout} className={styles.register}>
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <Link to={Urls.LOGIN}>
+                            <button className={styles.register}>
+                                {t('registerText')}
+                            </button>
+                        </Link>
+                    )}
+                </div>
             </div>
         </header>
     )

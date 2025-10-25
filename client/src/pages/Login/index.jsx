@@ -26,7 +26,6 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      // Düzgün email və password göndəririk
       const payload = {
         email: data.email,
         password: data.password
@@ -35,10 +34,19 @@ const Login = () => {
       const res = await api.post("/auth/login", payload);
 
       // Backenddən gələn tokeni alırıq
-      localStorage.setItem("token", res.data.token);
 
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("fullName", res.data.user.full_name);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("phone", res.data.user.phone || "");
+localStorage.setItem("location", res.data.user.location || "");
+
+      window.dispatchEvent(new Event("loginStatusChanged"));
       toast.success("Login uğurlu oldu!");
-      navigate("/profile");
+      // window.location.reload();
+
+      navigate("/");
+      console.log(res.data.token)
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.message || "Login uğursuz oldu!");

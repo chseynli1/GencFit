@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Spin } from "antd";
 import { useTranslation } from "react-i18next";
 import styles from "./Blog.module.scss";
 import { blogTranslations } from "../../../public/locales/blogTranslations.js";
@@ -22,7 +23,14 @@ const BlogPage = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>{t("loading")}</p>;
+  if (loading) {
+    return (
+      <div className={styles.loaderWrapper}>
+        <Spin size="large" tip={t("loading")} />
+      </div>
+    );
+  }
+
 
   const categories = [
     { key: "idman-sağlamlıq", title: t("categories.idman-saglamliq") },

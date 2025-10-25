@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Gyms.module.scss'
 import { useTranslation } from "react-i18next";
 import axios from 'axios';
+import { Spin } from "antd";
 import starIcon from '@/assets/images/starIcon.png'
 import locationIcon2 from '@/assets/images/locationIcon2.png'
 const Gyms = () => {
@@ -23,7 +24,13 @@ const Gyms = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <p>{t("loading")}</p>;
+  if (loading) {
+    return (
+      <div className={styles.loaderWrapper}>
+        <Spin size="large" tip={t("loading")} />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.gymsContainer}>
