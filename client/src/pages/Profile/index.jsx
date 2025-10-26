@@ -16,7 +16,15 @@ const Profile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [pwLoading, setPwLoading] = useState(false);
-
+  const [appointments, setAppointments] = useState([]);
+  const [newDate, setNewDate] = useState("");
+  const [newTime, setNewTime] = useState("");
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newVenue, setNewVenue] = useState("");
+  const [newPurpose, setNewPurpose] = useState("");
+  const [selectedVenueId, setSelectedVenueId] = useState("");
+  const [venues, setVenues] = useState([]);
+  const [scope, setScope] = useState("upcoming")
   const token = useMemo(() => localStorage.getItem("token"), []);
 
   // Axios default header (istəsən çıxarıb yalnız sorğularda da verə bilərsən)
@@ -147,6 +155,104 @@ const Profile = () => {
       setPwLoading(false);
     }
   };
+
+
+
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const res = await axios.get("/api/appointments", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setAppointments(res.data.data || []);
+      } catch (err) {
+        console.error("Randevular alınmadı:", err);
+      }
+    };
+
+    if (token) fetchAppointments();
+  }, [token]);
+
+
+
+  const handleAddAppointment = async () => {
+    if (!selectedVenueId || !newDate || !newTime) {
+      alert("Bütün xanaları doldurun!");
+      return;
+    }
+
+    const appointmentDateTime = new Date(`${newDate}T${newTime}:00+04:00`);
+    if (isNaN(appointmentDateTime.getTime()) || appointmentDateTime <= new Date()) {
+      alert("Zəhmət olmasa gələcək tarix və saat seçin.");
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        "/api/appointments",
+        {
+          venue_id: selectedVenueId,
+          appointment_date: appointmentDateTime.toISOString(),
+          duration_hours: 1,
+          purpose: newPurpose.trim() || "Randevu",
+          notes: "",
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      alert("Randevu əlavə olundu ✅");
+      setAppointments((prev) => [...prev, res.data.data || res.data]);
+      setShowAddModal(false);
+
+      // form reset
+      setSelectedVenueId("");
+      setNewDate("");
+      setNewTime("");
+      setNewPurpose("");
+    } catch (err) {
+      console.error("Randevu əlavə xətası:", err.response?.data || err);
+      alert(err?.response?.data?.message || "Randevu əlavə oluna bilmədi!");
+    }
+  };
+
+
+
+
+  useEffect(() => {
+    const fetchVenues = async () => {
+      try {
+        const res = await axios.get("/api/venues", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setVenues(res.data.data || res.data);
+      } catch (err) {
+        console.error("Venue listesi alınmadı:", err);
+      }
+    };
+
+    if (token) fetchVenues();
+  }, [token]);
+
+
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const res = await axios.get(`/api/appointments?scope=${scope}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setAppointments(res.data.data || []);
+      } catch (err) {
+        console.error("Randevular alınmadı:", err);
+      }
+    };
+    if (token) fetchAppointments();
+  }, [token, scope]);
+
+
 
   if (loading) return <p>Loading...</p>;
   const [firstName = "", lastName = ""] = (user?.full_name || "").split(" ");
@@ -331,6 +437,90 @@ const Profile = () => {
           </div>
         </div>
       )}
+
+      {/* Section 3 */}
+      <section className={styles.appointments}>
+        <div className={styles.sectionHeader}>
+          <h2>Randevularım</h2>
+          <span className={styles.line}></span>
+        </div>
+
+
+        <div className={styles.appointmentsCards}>
+          {appointments.length === 0 ? (
+            <p>Heç bir randevu yoxdur</p>
+          ) : (
+            appointments.map((appt) => (
+              <div className={styles.appointmentsCard}>
+                <h3 className={styles.cardHeader}>{appt.purpose}</h3>
+                <span>{appt.appointment_date}</span>
+                <span>{appt.venue_name}</span>
+              </div>
+            ))
+          )}
+
+        </div>
+        <button
+          className={styles.addAppointmentBtn}
+          onClick={() => setShowAddModal(true)}
+        >
+          Əlavə et
+        </button>
+        <button
+          className={scope === "past" ? styles.activeTab : ""}
+          onClick={() => setScope("past")}
+        >
+          Keçmiş randevular
+        </button>
+      </section>
+
+      {showAddModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <X className={styles.closeIcon} onClick={() => setShowAddModal(false)} />
+            <h3>Yeni Randevu Əlavə Et</h3>
+
+            <label>İdman növü</label>
+            <input
+              type="text"
+              value={newPurpose}
+              onChange={(e) => setNewVenue(e.target.value)}
+              placeholder="Məs: GəncFit Gym"
+            />
+
+            <label>Tarix</label>
+            <input
+              type="date"
+              value={newDate}
+              onChange={(e) => setNewDate(e.target.value)}
+            />
+
+            <label>Vaxt</label>
+            <input
+              type="time"
+              value={newTime}
+              onChange={(e) => setNewTime(e.target.value)}
+            />
+
+            <label>Məkan</label>
+            <select
+              value={selectedVenueId}
+              onChange={(e) => setSelectedVenueId(e.target.value)}
+            >
+              <option value="">Məkan seçin...</option>
+              {venues.map((v) => (
+                <option key={v.id} value={v.id}>
+                  {v.name}
+                </option>
+              ))}
+            </select>
+
+            <button onClick={handleAddAppointment}>Əlavə et</button>
+          </div>
+        </div>
+      )}
+
+
     </div>
   );
 };

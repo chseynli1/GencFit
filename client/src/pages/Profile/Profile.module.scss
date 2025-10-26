@@ -78,6 +78,7 @@
       }
     }
   }
+
   .passwordModal {
     position: fixed;
     top: 0;
@@ -220,4 +221,113 @@
       }
     }
   }
+
+  .appointments {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 1183px fit-content;
+    min-height: 252px;
+
+
+    .appointmentsCards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1183px;
+    }
+
+    .appointmentsCard {
+      width: 580px;
+      height: 116px;
+      background-color: white;
+      border: 1px solid #B2BCE7;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 15px 0 15px;
+
+      .cardHeader {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      h3,
+      span {
+        background: none;
+      }
+    }
+  }
+
+  .addAppointmentBtn {
+    background: #022BD1;
+    width: 280px;
+    height: 44px;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+
+    &:hover {
+      background: #0226b5;
+    }
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+
+    input,
+    textarea {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #45a049;
+      }
+    }
+  }
+
+  .closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
 }
