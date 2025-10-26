@@ -377,23 +377,23 @@
         margin-top: 100px;
         margin-bottom: 210px;
 
-        .query{
+        .query {
             background: none;
 
-            .queryContent{
+            .queryContent {
                 background: none;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 30px;
 
-                .queryTitle{
+                .queryTitle {
                     font-size: 32px;
                     font-weight: 500;
                     color: #022BD1;
                 }
 
-                .querySubtitle{
+                .querySubtitle {
                     width: 806px;
                     font-size: 24px;
                     font-weight: 400;
@@ -401,33 +401,119 @@
                     text-align: center;
                 }
 
-                .queryTitle, .querySubtitle{
+                .queryTitle,
+                .querySubtitle {
                     background: none;
                 }
             }
 
-            .queryForm{
+            .queryForm {
                 background: none;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
-                .queryInp, .queryBtn{
+                overflow: hidden;
+
+                .prefix {
+                    background: #f3f4f6;
+                    color: #374151;
+                    font-weight: 500;
+                    padding: 0 10px;
+                    border-right: 1px solid #d1d5db;
+                    user-select: none;
+                }
+
+                .queryInp,
+                .queryBtn {
                     width: 380px;
                     height: 44px;
                 }
 
-                .queryInp{
+                .queryInp {
                     border: 1px solid #022BD1;
                     border-radius: 5px;
+                    padding-left: 10px;
                 }
 
-                .queryBtn{
+                .queryBtn {
                     border-radius: 5px;
                     background-color: #022BD1;
                     border: 1px solid #022BD1;
+                    color: #EAEBED;
                 }
             }
         }
     }
+
+    /* Overlay */
+    .modalOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.55);
+        /* yarı şəffaf tünd fon */
+        display: grid;
+        place-items: center;
+        z-index: 9999;
+        padding: 16px;
+    }
+
+    /* Card */
+    .modalCard {
+        width: 100%;
+        max-width: 420px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        padding: 24px 22px;
+        text-align: center;
+    }
+
+    /* Icon */
+    .modalIcon {
+        width: 52px;
+        height: 52px;
+        color: #16a34a;
+        /* yaşıl */
+        margin: 6px auto 10px;
+    }
+
+    /* Title & text */
+    .modalTitle {
+        margin: 0 0 6px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .modalText {
+        margin: 0 0 18px;
+        font-size: 14px;
+        color: #374151;
+        line-height: 1.45;
+    }
+
+    /* Button */
+    .modalBtn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        background: #022BD1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .05s ease, opacity .2s ease;
+    }
+
+    .modalBtn:hover {
+        opacity: .95;
+    }
+
+    .modalBtn:active {
+        transform: translateY(1px);
+    }
+
 }

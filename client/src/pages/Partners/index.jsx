@@ -9,11 +9,18 @@ import usersVector from '@/assets/images/usersVector.png'
 import queryVector from '@/assets/images/queryVector.png'
 import searchVector from '@/assets/images/searchVector.png'
 import axios from 'axios'
+import { CheckCircle } from "lucide-react";
 import { uuid } from 'zod'
 
 const Partners = () => {
 
   const [reviews, setReviews] = useState([])
+  const [leadPhone, setLeadPhone] = useState("");
+  const [leadLoading, setLeadLoading] = useState(false);
+  const [leadMsg, setLeadMsg] = useState(""); // success / error mesajı
+  const [successOpen, setSuccessOpen] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+
 
 
   useEffect(() => {
@@ -52,6 +59,49 @@ const Partners = () => {
     ))
   }
 
+
+  const sendPartnerInquiry = async () => {
+    const trimmed = (leadPhone || "").trim();
+    const fullNumber = `+994${trimmed}`;
+    if (!trimmed) {
+      setLeadMsg("Zəhmət olmasa telefon nömrəsi daxil edin");
+      return;
+    }
+
+    try {
+      setLeadLoading(true);
+      setLeadMsg("");
+
+      const { data } = await axios.post("/api/partners/inquiries", { phone: fullNumber });
+
+      if (data?.success) {
+        setLeadMsg("");
+        setLeadPhone("");
+        setSuccessMsg("Sorğunuz qəbul olundu. Qısa müddətdə sizinlə əlaqə saxlanılacaq.");
+        setSuccessOpen(true);
+      } else {
+        setLeadMsg(data?.message || "Sorğu göndərilə bilmədi");
+      }
+    } catch (err) {
+      console.error("Inquiry error:", err);
+      const msg = err?.response?.data?.message || "Xəta baş verdi";
+      setLeadMsg(msg);
+    } finally {
+      setLeadLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!successOpen) return;
+    const onKey = (e) => e.key === "Escape" && setSuccessOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [successOpen]);
+
+
+
+
+
   return (
     <div className={styles.partners}>
       <section className={styles.firstSection}>
@@ -63,13 +113,22 @@ const Partners = () => {
           <div className={styles.formBlock}>
             <p className={styles.formLabel}>Tərəfdaşlıq üçün müraciət edin</p>
             <div className={styles.formActions}>
-              <span className={styles.prefix}>+994</span>
               <input
                 type="tel"
                 className={styles.input}
-                placeholder=""
+                placeholder="+994"
+                value={leadPhone}
+                onChange={(e) => setLeadPhone(e.target.value)}
               />
-              <button className={styles.button}>Sorğu göndərin</button>
+              <button
+                className={styles.button}
+                onClick={sendPartnerInquiry}
+                disabled={leadLoading}
+              >
+                {leadLoading ? "Göndərilir..." : "Sorğu göndərin"}
+              </button>
+
+
             </div>
           </div>
         </div>
@@ -210,11 +269,50 @@ const Partners = () => {
             <p className={styles.querySubtitle}>Sorğunuzu aldıqdan sonra komandamız sizinlə telefon zəngi və ya ismarıcla əlaqə quracaqdır.</p>
           </div>
           <div className={styles.queryForm}>
-            <input className={styles.queryInp} type='tel'/>
-            <button className={styles.queryBtn}>Sorğu göndər</button>
+            {/* <span className={styles.prefix}>+994</span> */}
+            <input className={styles.queryInp} type="tel"
+              placeholder="+994"
+              value={leadPhone}
+              onChange={(e) => {
+                // yalnız rəqəmləri qəbul et
+                const v = e.target.value.replace(/\D/g, "");
+                setLeadPhone(v);
+              }} />
+            <button className={styles.queryBtn}
+              onClick={sendPartnerInquiry}
+              disabled={leadLoading}
+            >{leadLoading ? "Göndərilir..." : "Sorğu göndər"}</button>
           </div>
         </div>
       </section>
+
+
+      {successOpen && (
+        <div
+          className={styles.modalOverlay}
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setSuccessOpen(false)} // overlay-ə klikdə bağlansın
+        >
+          <div
+            className={styles.modalCard}
+            onClick={(e) => e.stopPropagation()} // içə klik bağlamasın
+          >
+            <CheckCircle className={styles.modalIcon} aria-hidden="true" />
+            <h3 className={styles.modalTitle}>Uğurlu!</h3>
+            <p className={styles.modalText}>{successMsg}</p>
+
+            <button
+              className={styles.modalBtn}
+              onClick={() => setSuccessOpen(false)}
+              autoFocus
+            >
+              Tamam
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
