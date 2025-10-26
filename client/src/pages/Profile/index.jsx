@@ -25,7 +25,9 @@ const Profile = () => {
   const [selectedVenueId, setSelectedVenueId] = useState("");
   const [venues, setVenues] = useState([]);
   const [scope, setScope] = useState("upcoming")
+  const [purposeError, setPurposeError] = useState("");
   const token = useMemo(() => localStorage.getItem("token"), []);
+
 
   // Axios default header (istəsən çıxarıb yalnız sorğularda da verə bilərsən)
   useEffect(() => {
@@ -177,10 +179,20 @@ const Profile = () => {
 
 
   const handleAddAppointment = async () => {
+    const p = (newPurpose || "").trim();
+
     if (!selectedVenueId || !newDate || !newTime) {
       alert("Bütün xanaları doldurun!");
       return;
     }
+
+    if (p.length < 1 || p.length > 500) {
+      setPurposeError("Məqsəd 1–500 simvol olmalıdır");
+      return;
+    } else {
+      setPurposeError("");
+    }
+
 
     const appointmentDateTime = new Date(`${newDate}T${newTime}:00+04:00`);
     if (isNaN(appointmentDateTime.getTime()) || appointmentDateTime <= new Date()) {
@@ -207,11 +219,14 @@ const Profile = () => {
       setAppointments((prev) => [...prev, res.data.data || res.data]);
       setShowAddModal(false);
 
-      // form reset
+      alert("Randevu əlavə olundu ✅");
+      setAppointments(prev => [...prev, res.data.data || res.data]);
+      setShowAddModal(false);
       setSelectedVenueId("");
       setNewDate("");
       setNewTime("");
       setNewPurpose("");
+      setPurposeError("");
     } catch (err) {
       console.error("Randevu əlavə xətası:", err.response?.data || err);
       alert(err?.response?.data?.message || "Randevu əlavə oluna bilmədi!");
@@ -450,13 +465,17 @@ const Profile = () => {
           {appointments.length === 0 ? (
             <p>Heç bir randevu yoxdur</p>
           ) : (
-            appointments.map((appt) => (
-              <div className={styles.appointmentsCard}>
-                <h3 className={styles.cardHeader}>{appt.purpose}</h3>
-                <span>{appt.appointment_date}</span>
-                <span>{appt.venue_name}</span>
-              </div>
-            ))
+            appointments.map((appt) => {
+              const dt = appt.appointment_date ? new Date(appt.appointment_date) : null;
+              return (
+                <div key={appt.id || appt._id} className={styles.appointmentsCard}>
+                  <h3 className={styles.cardHeader}>{appt.purpose}</h3>
+                  <span>{dt ? dt.toLocaleString() : appt.appointment_date}</span>
+                  <span>{appt.venue_name}</span>
+                </div>
+              )
+
+            })
           )}
 
         </div>
@@ -484,7 +503,7 @@ const Profile = () => {
             <input
               type="text"
               value={newPurpose}
-              onChange={(e) => setNewVenue(e.target.value)}
+              onChange={(e) => setNewPurpose(e.target.value)}
               placeholder="Məs: GəncFit Gym"
             />
 
@@ -508,11 +527,14 @@ const Profile = () => {
               onChange={(e) => setSelectedVenueId(e.target.value)}
             >
               <option value="">Məkan seçin...</option>
-              {venues.map((v) => (
-                <option key={v.id} value={v.id}>
-                  {v.name}
-                </option>
-              ))}
+              {venues.map((v) => {
+                const vid = v.id || v._id;
+                return (
+                  <option key={vid} value={vid}>
+                    {v.name}
+                  </option>
+                );
+              })}
             </select>
 
             <button onClick={handleAddAppointment}>Əlavə et</button>
