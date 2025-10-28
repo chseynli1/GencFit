@@ -145,7 +145,7 @@
         border: 1px solid #ccc;
         border-radius: 20px;
         padding: 5px 10px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         animation: fadeIn 0.2s ease;
 
         input {
@@ -173,7 +173,7 @@
         width: 200px;
         list-style: none;
         padding: 5px 0;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         z-index: 1000;
 
         li {
@@ -185,6 +185,8 @@
             }
         }
     }
+
+
 }
 
 @keyframes fadeIn {
@@ -192,6 +194,7 @@
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -200,15 +203,131 @@
 
 
 .profileCircleBtn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #4caf50;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profil avatar şəkli */
+.profileAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    object-fit: cover;
+    display: inline-block;
+    border: 2px solid #e5e7eb;
+    margin-right: 10px;
+}
+
+/* Profil baş hərfləri üçün düymə (var idi, sadəcə ölçü uyğun olsun) */
+.profileCircleBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: #003bcc;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+/* Logout ikon düyməsi */
+.logoutIconBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #003bcc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .15s, opacity .2s;
+}
+
+.logoutIconBtn:hover {
+    background: #f9fafb;
+}
+
+.logoutIconBtn:active {
+    opacity: .9;
+}
+
+/* Modal overlay + card */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.55);
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+    padding: 16px;
+}
+
+.modalCard {
+    width: 100%;
+    max-width: 460px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    padding: 20px 18px;
+}
+
+.modalTitle {
+    margin: 6px 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.modalText {
+    margin: 0 0 16px;
+    color: #374151;
+    font-size: 14px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modalBtnSecondary,
+.modalBtnPrimary {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modalBtnSecondary {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.modalBtnSecondary:hover {
+    background: #e5e7eb;
+}
+
+.modalBtnPrimary {
+    background: #003bcc;
+    /* qırmızı */
+    color: #fff;
+}
+
+.modalBtnPrimary:hover {
+    opacity: .95;
 }

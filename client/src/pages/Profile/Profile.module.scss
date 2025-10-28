@@ -43,6 +43,7 @@
 
 .hiddenFileInput { display: none; }
 
+<<<<<<< HEAD
 .uploadOverlay {
   position: absolute;
   inset: 0;
@@ -55,6 +56,45 @@
   gap: 8px;
   font-size: 12px;
 }
+=======
+      .profileImageWrap {
+        position: relative;
+        width: 140px;
+        height: 140px;
+
+        .profileImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 9999px;
+          display: block;
+          background: white;
+        }
+
+        .changePhotoBtn {
+          position: absolute;
+          bottom: 8px;
+          right: 8px;
+          padding: 6px 10px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          background: none;
+          color: #fff;
+          font-size: 12px;
+          opacity: 0.9;
+
+          img{
+            background: none;
+          }
+        }
+
+        .changePhotoBtn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+>>>>>>> b1d335016ba9e1083705b603b164a99ba3eb0c94
 
 .progressBar {
   width: 80%;
@@ -283,17 +323,18 @@
   }
 
   .modal {
-    background: #fff;
-    padding: 30px;
+    background: #f7f8fa !important;
     border-radius: 12px;
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     position: relative;
 
     input,
-    textarea {
+    select {
+      width: 470px;
+      height: 40px;
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 8px;
@@ -301,16 +342,17 @@
     }
 
     button {
-      background: #4caf50;
-      color: #fff;
+      background: #022BD1;
+      color: #EAEBED;
       border: none;
-      padding: 10px;
-      border-radius: 8px;
+      width: 280px;
+      height: 44px;
+      border-radius: 5px;
       cursor: pointer;
       transition: 0.3s;
 
       &:hover {
-        background: #45a049;
+        background: #0226b5;
       }
     }
   }
@@ -320,5 +362,239 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+    background: none;
+  }
+
+
+  .appointmentsActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .pastBtn {
+    background: #022BD1;
+    color: #EAEBED;
+    border: 1px solid #022BD1;
+    width: 280px;
+    height: 44px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .pastBtn:hover {
+    background: #0226b5;
+  }
+
+  /* Side Drawer */
+  .sideModalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.45);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+  }
+
+  .sideModal {
+    width: min(420px, 92vw);
+    height: 100%;
+    background: #fff;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+    animation: slideIn .25s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: .7;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .sideModalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f1f1f3;
+  }
+
+  .sideModalClose {
+    cursor: pointer;
+  }
+
+  .sideModalBody {
+    overflow-y: auto;
+    padding: 16px 20px 24px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .pastCard {
+    border: 1px solid #eef0f4;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: #fafbfc;
+
+    h4,
+    .pastMeta {
+      background: none;
+    }
+  }
+
+  .pastCard h4 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .pastMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+    color: #374151;
+
+    span {
+      background: none;
+    }
+  }
+
+  /* Existing modals should already have these; keep for safety */
+  .modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.45);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+  }
+
+  .modal {
+    background: #fff;
+    width: min(520px, 95vw);
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .closeIcon {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+  }
+
+  .errorText {
+    color: #dc2626;
+    font-size: 12px;
+  }
+
+  /* Reviews section */
+  .reviewsSection {
+    margin-top: 24px;
+  }
+
+  .reviewsGrid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .reviewCard {
+    border: 1px solid #eef0f4;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .03);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .reviewHeader {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f3f6;
+    background: #fafbfc;
+  }
+
+  .reviewTitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .reviewBody {
+    padding: 14px 16px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .reviewRow {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .reviewLabel {
+    color: #6b7280;
+  }
+
+  .reviewValue {
+    color: #1f2937;
+  }
+
+  /* Stars */
+  .stars {
+    display: inline-flex;
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+
+  .star,
+  .starFilled {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #d1d5db;
+  }
+
+  .starFilled {
+    fill: #fbbf24;
+    /* amber-400 */
+    stroke: #fbbf24;
+  }
+
+  .reviewFooter {
+    padding: 10px 12px;
+    border-top: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: flex-end;
+    /* sağ alt */
+  }
+
+  .repeatBtn {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .repeatBtn:hover {
+    background: #e9eaee;
   }
 }
