@@ -1,16 +1,15 @@
-import React from 'react'
-import styles from './Contact.module.scss'
-import locationIcon1 from '@/assets/images/locationIcon1.png'
-import messageIcon from '@/assets/images/messageIcon.png'
-import phoneIcon from '@/assets/images/phoneIcon.png'
-import instagramIcon from '@/assets/images/instagramIcon.png'
-import linkedinIcon from '@/assets/images/linkedinIcon.png'
-import facebookIcon from '@/assets/images/facebookIcon.png'
-import locationIcon2 from '@/assets/images/locationIcon2.png'
-import { Link } from 'react-router'
+import React from "react";
+import styles from "./Contact.module.scss";
+import locationIcon1 from "@/assets/images/locationIcon1.png";
+import messageIcon from "@/assets/images/messageIcon.png";
+import phoneIcon from "@/assets/images/phoneIcon.png";
+import instagramIcon from "@/assets/images/instagramIcon.png";
+import linkedinIcon from "@/assets/images/linkedinIcon.png";
+import facebookIcon from "@/assets/images/facebookIcon.png";
+import locationIcon2 from "@/assets/images/locationIcon2.png";
+import { Link } from "react-router";
 const Contact = () => {
   return (
-
     <div className={styles.contactSections}>
       {/* Section1 */}
       <section className={styles.contactSection}>
@@ -54,7 +53,6 @@ const Contact = () => {
         </div>
       </section>
 
-
       {/* Section 2 */}
       <section className={styles.socialSection}>
         <div className={styles.social}>
@@ -63,27 +61,32 @@ const Contact = () => {
         </div>
 
         <div className={styles.socialLinks}>
-          <div className={styles.socialLink}>
-            <div className={styles.socialIcon}>
-              <img src={instagramIcon} />
-            </div>
-            <Link to='https://www.instagram.com/genc.fit/?igsh=azFuZ3d5b2gydXBh#'>@genc.fit</Link>
-          </div>
-          <div className={styles.socialLink}>
-            <div className={styles.socialIcon}>
-              <img src={linkedinIcon} />
-            </div>
-            <Link to='https://www.linkedin.com/company/g%C9%99ncfi%CC%87t/'>GəncFit</Link>
-          </div>
-          <div className={styles.socialLink}>
-            <div className={styles.socialIcon}>
-              <img src={facebookIcon} />
-            </div>
-            <Link to='https://www.facebook.com/people/G%C9%99ncfit/61572727730784/?mibextid=wwXIfr&rdid=t1w2BFYGUxfIW5SE&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ai51Fyo8V%2F%3Fmibextid%3DwwXIfr'>@GəncFit</Link>
-          </div>
-        </div>
-      </section>
+  <a
+    href="https://www.instagram.com/genc.fit?igsh=ZnlqeXpibTFsYjZ2"
+    target="_blank"
+    className={styles.socialIcon}
+  >
+    <img src={instagramIcon} alt="Instagram" />
+  </a>
 
+  <a
+    href="https://www.linkedin.com/company/g%C9%99ncfi%CC%87t/"
+    target="_blank"
+    className={styles.socialIcon}
+  >
+    <img src={linkedinIcon} alt="LinkedIn" />
+  </a>
+
+  <a
+    href="https://www.facebook.com/people/G%C9%99ncfit/61572727730784/?mibextid=wwXIfr&rdid=t1w2BFYGUxfIW5SE&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ai51Fyo8V%2F%3Fmibextid%3DwwXIfr"
+    target="_blank"
+    className={styles.socialIcon}
+  >
+    <img src={facebookIcon} alt="Facebook" />
+  </a>
+</div>
+
+      </section>
 
       {/* Section 3 */}
       <section className={styles.mapSection}>
@@ -93,29 +96,30 @@ const Contact = () => {
         </div>
 
         <div className={styles.mapWrapper}>
-           <iframe
-           className={styles.iframe}
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.454941617971!2d49.867!3d40.409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dbb8c6eabeb%3A0x4c50a8e!2sNərimanov%20rayonu%2C%20Bakı!5e0!3m2!1saz!2saz!4v1700000000000"
-          width="400"
-          height="300"
-          style={{ border: 0, borderRadius: "8px" }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
+          <iframe
+            className={styles.iframe}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.454941617971!2d49.867!3d40.409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dbb8c6eabeb%3A0x4c50a8e!2sNərimanov%20rayonu%2C%20Bakı!5e0!3m2!1saz!2saz!4v1700000000000"
+            width="400"
+            height="300"
+            style={{ border: 0, borderRadius: "8px" }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
 
-        <div className={styles.mapAddress}>
-          <div className={styles.mapImg}>
-            <img src={locationIcon2} />
+          <div className={styles.mapAddress}>
+            <div className={styles.mapImg}>
+              <img src={locationIcon2} />
+            </div>
+            <div className={styles.mapSubtitle}>
+              <p className="">
+                Azərbaycan Respublikası, Bakı şəhəri N.Nərimanov rayonu
+              </p>
+            </div>
           </div>
-         <div className={styles.mapSubtitle}>
-           <p className="">Azərbaycan Respublikası, Bakı şəhəri N.Nərimanov rayonu</p>
-         </div>
-        </div>
         </div>
       </section>
     </div>
+  );
+};
 
-  )
-}
-
-export default Contact
+export default Contact;

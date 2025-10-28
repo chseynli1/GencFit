@@ -6,78 +6,71 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   gap: 30px;
 
-  .myProfile {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  /* Profile.module.scss */
 
-    .profileTitle {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+.avatarWrapper {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-      .profileHeader {
-        color: #022bd1;
-        font-size: 24px;
-        font-weight: 500;
-      }
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-      .line {
-        width: 1244px;
-        height: 1px;
-        background-color: #95a6ec;
-        border-radius: 10px;
-      }
-    }
+.avatarEditBtn {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  transition: transform .12s ease;
+}
+.avatarEditBtn:hover { transform: scale(1.05); }
 
-    .profileContent {
-      width: 1183px fit-content;
-      height: 228px;
-      background-color: white;
-      border-radius: 10px;
-      display: flex;
-      gap: 60px;
-      align-items: center;
-      padding-left: 15px;
+.hiddenFileInput { display: none; }
 
-      .profileImage {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-      }
+.uploadOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  gap: 8px;
+  font-size: 12px;
+}
 
-      .profileInfo {
-        width: 168px;
-        height: 116px;
-        background: none;
-        display: flex;
-        flex-direction: column;
-        gap: 26px;
+.progressBar {
+  width: 80%;
+  height: 6px;
+  background: rgba(255,255,255,.35);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progressBar > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  transition: width .2s linear;
+}
 
-        .userName {
-          font-size: 20px;
-          font-weight: 500;
-          color: #2b2c30;
-        }
-
-        div {
-          p {
-            background: none;
-            font-size: 16px;
-            font-weight: 400;
-            color: #2b2c30;
-            display: flex;
-            gap: 10px;
-          }
-        }
-
-        .userName,
-        div {
-          background: none;
-        }
-      }
-    }
-  }
 
   .passwordModal {
     position: fixed;
@@ -229,7 +222,6 @@
     width: 1183px fit-content;
     min-height: 252px;
 
-
     .appointmentsCards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -241,7 +233,7 @@
       width: 580px;
       height: 116px;
       background-color: white;
-      border: 1px solid #B2BCE7;
+      border: 1px solid #b2bce7;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -261,7 +253,7 @@
   }
 
   .addAppointmentBtn {
-    background: #022BD1;
+    background: #022bd1;
     width: 280px;
     height: 44px;
     color: #fff;
@@ -329,5 +321,4 @@
     right: 10px;
     cursor: pointer;
   }
-
 }
